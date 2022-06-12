@@ -3,12 +3,18 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/GILARDO/KULIAH/Semester 4/Prak Pemrograman Mobile/myGPS/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.153" />
+        <entry key="..\:/GILARDO/KULIAH/Semester 4/Prak Pemrograman Mobile/myGPS/app/src/main/res/drawable/b_stroke.xml" value="0.18" />
+        <entry key="..\:/GILARDO/KULIAH/Semester 4/Prak Pemrograman Mobile/myGPS/app/src/main/res/drawable/background_ui.xml" value="0.18" />
         <entry key="..\:/GILARDO/KULIAH/Semester 4/Prak Pemrograman Mobile/myGPS/app/src/main/res/drawable/biru.xml" value="0.1935" />
         <entry key="..\:/GILARDO/KULIAH/Semester 4/Prak Pemrograman Mobile/myGPS/app/src/main/res/drawable/hijau.xml" value="0.1935" />
+        <entry key="..\:/GILARDO/KULIAH/Semester 4/Prak Pemrograman Mobile/myGPS/app/src/main/res/drawable/ic_launcher_background.xml" value="0.153" />
         <entry key="..\:/GILARDO/KULIAH/Semester 4/Prak Pemrograman Mobile/myGPS/app/src/main/res/drawable/kuning.xml" value="0.1935" />
         <entry key="..\:/GILARDO/KULIAH/Semester 4/Prak Pemrograman Mobile/myGPS/app/src/main/res/drawable/merah.xml" value="0.1935" />
         <entry key="..\:/GILARDO/KULIAH/Semester 4/Prak Pemrograman Mobile/myGPS/app/src/main/res/drawable/solid.xml" value="0.1935" />
         <entry key="..\:/GILARDO/KULIAH/Semester 4/Prak Pemrograman Mobile/myGPS/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/GILARDO/KULIAH/Semester 4/Prak Pemrograman Mobile/myGPS/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.153" />
+        <entry key="..\:/GILARDO/KULIAH/Semester 4/Prak Pemrograman Mobile/myGPS/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.153" />
       </map>
     </option>
   </component>
