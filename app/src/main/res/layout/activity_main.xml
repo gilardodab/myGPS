@@ -13,6 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="140dp"
+        android:layout_marginEnd="140dp"
         android:layout_marginTop="5dp"
         android:text="Data Lokasi-Cuaca"
         android:textColor="#ffff"
@@ -46,7 +47,7 @@
             android:minHeight="48dp"
             android:text="Alamat    : "
             android:textColor="#000000"
-            android:textSize="15sp"
+            android:textSize="13sp"
             android:textStyle="bold"
             android:typeface="serif"
             />
@@ -54,7 +55,7 @@
 
         <TextView
             android:id="@+id/alamat"
-            android:layout_width="280dp"
+            android:layout_width="276dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="100dp"
             android:layout_marginTop="8dp"
@@ -64,7 +65,7 @@
             android:minHeight="48dp"
             android:text="Klik FIND NOW Untuk Menemukan Lokasi Terbaru"
             android:textColor="#000000"
-            android:textSize="15sp"
+            android:textSize="13sp"
             android:textStyle="bold"
             android:typeface="serif"
             app:layout_constraintBaseline_toBaselineOf="@id/alamat"
@@ -74,78 +75,47 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/card_view2"
-        android:layout_gravity="center"
         android:layout_width="380dp"
         android:layout_height="0dp"
+        android:layout_gravity="center"
         android:layout_marginTop="5dp"
-        card_view:cardCornerRadius="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/card_view1"  >
+        app:layout_constraintTop_toBottomOf="@id/card_view1"
+        card_view:cardCornerRadius="8dp">
+
         <TextView
             android:id="@+id/Latitude"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
             android:layout_marginEnd="16dp"
+            android:layout_marginBottom="8dp"
             android:fontFamily="serif"
             android:minHeight="4dp"
             android:text="Latitude : 0 "
             android:textColor="#000000"
-            android:textSize="15sp"
+            android:textSize="13sp"
             android:textStyle="bold" />
+
         <TextView
             android:id="@+id/Longitude"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="175dp"
             android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
             android:layout_marginEnd="16dp"
+            android:layout_marginBottom="8dp"
             android:fontFamily="serif"
             android:minHeight="4dp"
             android:text="Longitude : 0"
             android:textColor="#000000"
-            android:textSize="15sp"
+            android:textSize="13sp"
             android:textStyle="bold"
             app:layout_constraintBaseline_toBaselineOf="@id/Latitude"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"/>
-        //TextView
-        android:id="@+id/Temp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="16dp"
-        android:fontFamily="serif"
-        android:minHeight="4dp"
-        android:text="29°C"
-        android:textColor="#000000"
-        android:textSize="15sp"
-        android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@+id/LatLong"/>
-
-        TextView
-        android:id="@+id/Status"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="65dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="8dp"
-        android:fontFamily="serif"
-        android:minHeight="4dp"
-        android:text="Sky Clouds"
-        android:textColor="#000000"
-        android:textSize="15sp"
-        android:textStyle="bold"
-        app:layout_constraintBaseline_toBaselineOf="@id/Temp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent" />
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
@@ -170,7 +140,7 @@
             android:minHeight="8dp"
             android:text="Status      : "
             android:textColor="#000000"
-            android:textSize="15sp"
+            android:textSize="13sp"
             android:textStyle="bold"
             android:typeface="serif"
             />
@@ -186,7 +156,7 @@
             android:minHeight="8dp"
             android:text="-"
             android:textColor="#000000"
-            android:textSize="15sp"
+            android:textSize="13sp"
             android:textStyle="bold"
             android:typeface="serif"
             app:layout_constraintBaseline_toBaselineOf="@id/alamat"
@@ -203,7 +173,7 @@
             android:minHeight="8dp"
             android:text="Temp       : "
             android:textColor="#000000"
-            android:textSize="15sp"
+            android:textSize="13sp"
             android:textStyle="bold"
             android:typeface="serif" />
 
@@ -219,7 +189,7 @@
             android:minHeight="8dp"
             android:text="-"
             android:textColor="#000000"
-            android:textSize="15sp"
+            android:textSize="12sp"
             android:textStyle="bold"
             android:typeface="serif"
             app:layout_constraintBaseline_toBaselineOf="@id/alamat"
@@ -237,7 +207,7 @@
             android:minHeight="8dp"
             android:text="Update    : "
             android:textColor="#000000"
-            android:textSize="15sp"
+            android:textSize="13sp"
             android:textStyle="bold"
             android:typeface="serif" />
 
@@ -253,7 +223,7 @@
             android:minHeight="8dp"
             android:text="-"
             android:textColor="#000000"
-            android:textSize="15sp"
+            android:textSize="13sp"
             android:textStyle="bold"
             android:typeface="serif"
             app:layout_constraintBaseline_toBaselineOf="@id/alamat"
@@ -538,7 +508,7 @@
 
 
     <Button
-        android:id="@+id/getgps"
+        android:id="@+id/findlocation"
         android:layout_width="135dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -558,17 +528,17 @@
         android:textColor="#ffff"
         android:text="Log to File"
         android:background="@drawable/b_stroke"
-        app:layout_constraintBaseline_toBaselineOf="@+id/getgps"
+        app:layout_constraintBaseline_toBaselineOf="@+id/findlocation"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/getgps" />
+        app:layout_constraintStart_toEndOf="@+id/findlocation" />
 
     <EditText
         android:id="@+id/editFileName"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="5dp"
         android:layout_marginEnd="16dp"
         android:ems="10"
         android:backgroundTint="@color/white"
@@ -577,7 +547,7 @@
         android:textColor="#ffff"
         android:inputType="textPersonName"
         android:minHeight="20dp"
-        android:textSize="14sp"
+        android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -599,7 +569,7 @@
         android:textColor="#ffff"
         android:inputType="textLongMessage|textMultiLine"
         android:lines="4"
-        android:textSize="14sp"
+        android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editFileName" />

@@ -50,7 +50,7 @@ class MainActivity : AppCompatActivity() {
         /* Buat instance baru dari FusedLocationProviderClient untuk digunakan dalam Activity */
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this)
         //membuat kelas cuaca  dengan 3 parameter untuk menampilkan cuaca dari openwheatermaps
-        class weatherTask() : AsyncTask<String, Void, String>() {
+        class Cuaca() : AsyncTask<String, Void, String>() {
             //untuk menginisialisasi dan mengatur UI dasar dari thread utama.
             override fun onPreExecute() {
                 super.onPreExecute()
@@ -104,26 +104,25 @@ class MainActivity : AppCompatActivity() {
                     findViewById<ProgressBar>(R.id.loader).visibility = View.GONE
                 } catch (e: Exception) {
                     findViewById<ProgressBar>(R.id.loader).visibility = View.GONE
-
                 }
             }
         }
-        //inisialisasi data
-        binding.getgps.setOnClickListener {
-            checkLocationPermisison()
-            weatherTask().execute()
+        //inisialisasi data lokasi dan cuaca
+        binding.findlocation.setOnClickListener {
+            checkLocationPermision()
+            Cuaca().execute()
         }
-        //memasukan data sensor gps ke file
+        //memasukan data gps dan cuaca ke catatan dengan format file txt
         binding.log.setOnClickListener {
             var logDataLokasi = binding.editTeksCatatan.text.toString()
             val timeStamp: String = SimpleDateFormat("yy-MM-dd").format(Date())
             binding.editFileName.setText("data_lokasi-" + timeStamp + ".txt")
-            val logData1 = binding.alamat.text.toString()
+            val logAlamat = binding.alamat.text.toString()
             val logLatitude = binding.Latitude.text.toString()
             val logLongitude = binding.Longitude.text.toString()
             val logstatus = binding.status.text.toString()
             val logsuhu = binding.temp.text.toString()
-            logDataLokasi = "$logDataLokasi$logData1 , $logLatitude, $logLongitude, $logstatus $logsuhu\n"
+            logDataLokasi = "$logDataLokasi$logAlamat , $logLatitude, $logLongitude, $logstatus $logsuhu\n"
             binding.editTeksCatatan.setText(logDataLokasi)
         }
 
@@ -139,13 +138,14 @@ class MainActivity : AppCompatActivity() {
                         )
                     )
                 } catch (e: Exception) {
-                    Toast.makeText(this, "File Write Failed", Toast.LENGTH_LONG).show()
+                    //Menampilkan Kesalahan Pesan pada layar pengguna
+                    Toast.makeText(this, "Gagal Menyimpan File", Toast.LENGTH_LONG).show()
                     e.printStackTrace()
                 }
                 binding.editFileName.text.clear()
                 binding.editTeksCatatan.text.clear()
             } else {
-                Toast.makeText(this, "Please provide a Filename", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, "Harap Berikan Nama File", Toast.LENGTH_LONG).show()
             }
         }
 
@@ -157,31 +157,33 @@ class MainActivity : AppCompatActivity() {
                     val note = repo.getNote(binding.editFileName.text.toString())
                     binding.editTeksCatatan.setText(note.noteText)
                 } catch (e: Exception) {
-                    Toast.makeText(this, "File Read Failed", Toast.LENGTH_LONG).show()
+                    //Menampilkan Kesalahan Pesan pada layar pengguna
+                    Toast.makeText(this, "Gagal Membuka File", Toast.LENGTH_LONG).show()
                     e.printStackTrace()
                 }
             } else {
-                Toast.makeText(this, "Please provide a Filename", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, "Harap Berikan Nama File", Toast.LENGTH_LONG).show()
             }
         }
         //menambhakan binding Delete
-        //menghapus file beserta isi jika tombol Hapus di klik
+        //menghapus file beserta isi dari repo jika tombol Hapus di klik
         binding.Delete.setOnClickListener {
             if (binding.editFileName.text.isNotEmpty()) {
                 try {
                     if (repo.deleteNote(binding.editFileName.text.toString())) {
-                        Toast.makeText(this, "File Deleted", Toast.LENGTH_LONG).show()
+                        //Menampilkan Kesalahan Pesan pada layar pengguna
+                        Toast.makeText(this, "File Dihapus", Toast.LENGTH_LONG).show()
                     } else {
-                        Toast.makeText(this, "File Could Not Be Deleted", Toast.LENGTH_LONG).show()
+                        Toast.makeText(this, "File Tidak Dapat Dihapus", Toast.LENGTH_LONG).show()
                     }
                 } catch (e: Exception) {
-                    Toast.makeText(this, "File Delete Failed", Toast.LENGTH_LONG).show()
+                    Toast.makeText(this, "Penghapusan File Gagal", Toast.LENGTH_LONG).show()
                     e.printStackTrace()
                 }
                 binding.editFileName.text.clear()
                 binding.editTeksCatatan.text.clear()
             } else {
-                Toast.makeText(this, "Please provide a Filename", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, "Harap berikan Nama File", Toast.LENGTH_LONG).show()
             }
         }
 
@@ -189,8 +191,8 @@ class MainActivity : AppCompatActivity() {
         binding.share.setOnClickListener {
             val intent = Intent(Intent.ACTION_SEND)
             intent.type = "text/plain"
-            val logData1 = binding.alamat.text.toString()
-            intent.putExtra(Intent.EXTRA_TEXT, logData1)
+            var logAlamat = binding.alamat.text.toString()
+            intent.putExtra(Intent.EXTRA_TEXT, logAlamat)
             intent.putExtra(Intent.EXTRA_SUBJECT, "Subject Here")
             val chooser = Intent.createChooser(intent, "Bagikan Lokasi Dengan : ")
             startActivity(chooser)
@@ -198,7 +200,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     //mengecek perizinan lokasi hp
-    private fun checkLocationPermisison() {
+    private fun checkLocationPermision() {
 
         if (ActivityCompat.checkSelfPermission(this,
                 Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED
@@ -259,17 +261,10 @@ class MainActivity : AppCompatActivity() {
                 this,
                 Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED
         ) {
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-            // di sini untuk meminta izin yang hilang, dan kemudian menimpa
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // untuk menangani kasus di mana pengguna memberikan izin.
             return
         }
         //mendapatkan lokasi terakhir untuk ditampilkan pada textview
         fusedLocationProviderClient.lastLocation.addOnCompleteListener { task ->
-
             val location = task.getResult()
             if (location != null) {
                 try {

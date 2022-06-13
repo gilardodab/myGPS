@@ -2,10 +2,10 @@ package com.gilardo.mygps.model
 
 import android.content.Context
 import java.io.File
-
+//Membuat Kelas InternalFileRepository
 class InternalFileRepository(var context: Context) :
     NoteRepository {
-
+    //menambahkan function kedalam string
     private fun noteFile(fileName: String): File = File(noteDirectory(), fileName)
     private fun noteDirectory(): String = context.filesDir.absolutePath
 
